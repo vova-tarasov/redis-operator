@@ -5,10 +5,10 @@ import (
 	"sort"
 	"strconv"
 
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
-	"github.com/spotahome/redis-operator/log"
-	"github.com/spotahome/redis-operator/service/k8s"
-	"github.com/spotahome/redis-operator/service/redis"
+	redisfailoverv1 "github.com/vova-tarasov/redis-operator/api/redisfailover/v1"
+	"github.com/vova-tarasov/redis-operator/log"
+	"github.com/vova-tarasov/redis-operator/service/k8s"
+	"github.com/vova-tarasov/redis-operator/service/redis"
 )
 
 // RedisFailoverHeal defines the interface able to fix the problems on the redis failovers

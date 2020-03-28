@@ -13,12 +13,12 @@ import (
 	_ "k8s.io/client-go/plugin/pkg/client/auth/oidc"
 	"k8s.io/client-go/rest"
 
-	"github.com/spotahome/redis-operator/cmd/utils"
-	"github.com/spotahome/redis-operator/log"
-	"github.com/spotahome/redis-operator/metrics"
-	"github.com/spotahome/redis-operator/operator/redisfailover"
-	"github.com/spotahome/redis-operator/service/k8s"
-	"github.com/spotahome/redis-operator/service/redis"
+	"github.com/vova-tarasov/redis-operator/cmd/utils"
+	"github.com/vova-tarasov/redis-operator/log"
+	"github.com/vova-tarasov/redis-operator/metrics"
+	"github.com/vova-tarasov/redis-operator/operator/redisfailover"
+	"github.com/vova-tarasov/redis-operator/service/k8s"
+	"github.com/vova-tarasov/redis-operator/service/redis"
 )
 
 const (

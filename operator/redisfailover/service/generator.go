@@ -12,8 +12,8 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 	"bytes"
 
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
-	"github.com/spotahome/redis-operator/operator/redisfailover/util"
+	redisfailoverv1 "github.com/vova-tarasov/redis-operator/api/redisfailover/v1"
+	"github.com/vova-tarasov/redis-operator/operator/redisfailover/util"
 	"text/template"
 )
 
@@ -58,7 +58,12 @@ func generateSentinelService(rf *redisfailoverv1.RedisFailover, labels map[strin
 					Name:       "sentinel",
 					Port:       26379,
 					TargetPort: sentinelTargetPort,
-					Protocol:   "TCP",
+					Protocol:   corev1.ProtocolTCP,
+				},
+				{
+					Name:       exporterPortName,
+					Port:       sentinelExporterPort,
+					Protocol:   corev1.ProtocolTCP,
 				},
 			},
 		},
@@ -91,9 +96,9 @@ func generateRedisService(rf *redisfailoverv1.RedisFailover, labels map[string]s
 			ClusterIP: corev1.ClusterIPNone,
 			Ports: []corev1.ServicePort{
 				{
+					Name:     exporterPortName,
 					Port:     exporterPort,
 					Protocol: corev1.ProtocolTCP,
-					Name:     exporterPortName,
 				},
 			},
 			Selector: selectorLabels,

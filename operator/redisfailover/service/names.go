@@ -3,7 +3,7 @@ package service
 import (
 	"fmt"
 
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
+	redisfailoverv1 "github.com/vova-tarasov/redis-operator/api/redisfailover/v1"
 )
 
 // GetRedisShutdownConfigMapName returns the name for redis configmap
@@ -35,5 +35,5 @@ func GetSentinelName(rf *redisfailoverv1.RedisFailover) string {
 }
 
 func generateName(typeName, metaName string) string {
-	return fmt.Sprintf("%s%s-%s", baseName, typeName, metaName)
+	return fmt.Sprintf("%s-%s", metaName, typeName)
 }

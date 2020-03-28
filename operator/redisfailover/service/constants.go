@@ -9,9 +9,9 @@ const (
 const (
 	exporterPort                  = 9121
 	sentinelExporterPort          = 9355
-	exporterPortName              = "http-metrics"
-	exporterContainerName         = "redis-exporter"
-	sentinelExporterContainerName = "sentinel-exporter"
+	exporterPortName              = "metrics"
+	exporterContainerName         = "metrics"
+	sentinelExporterContainerName = "metrics"
 	exporterDefaultRequestCPU     = "25m"
 	exporterDefaultLimitCPU       = "50m"
 	exporterDefaultRequestMemory  = "50Mi"
@@ -20,15 +20,14 @@ const (
 
 const (
 	description            = "Manage a Redis Failover deployment"
-	baseName               = "rf"
-	bootstrapName          = "b"
-	sentinelName           = "s"
+	bootstrapName          = "redis-bootstrap"
+	sentinelName           = "redis-sentinel"
 	sentinelRoleName       = "sentinel"
 	sentinelConfigFileName = "sentinel.conf"
 	redisConfigFileName    = "redis.conf"
-	redisName              = "r"
-	redisShutdownName      = "r-s"
-	redisReadinessName     = "r-readiness"
+	redisName              = "redis"
+	redisShutdownName      = "redis-shutdown"
+	redisReadinessName     = "redis-readiness"
 	redisRoleName          = "redis"
 	redisGroupName         = "mymaster"
 	appLabel               = "redis-failover"
