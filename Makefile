@@ -4,7 +4,7 @@ VERSION := v1.0.0
 SERVICE_NAME := redis-operator
 
 # Docker image name for this project
-IMAGE_NAME := spotahome/$(SERVICE_NAME)
+IMAGE_NAME := vova-tarasov/$(SERVICE_NAME)
 
 # Repository url for this project
 REPOSITORY := quay.io/$(IMAGE_NAME)
@@ -42,7 +42,7 @@ DEV_DIR := docker/development
 APP_DIR := docker/app
 
 # workdir
-WORKDIR := /go/src/github.com/spotahome/redis-operator
+WORKDIR := /go/src/github.com/vova-tarasov/redis-operator
 
 # The default action of this Makefile is to build the development docker image
 .PHONY: default
@@ -100,7 +100,8 @@ publish:
 	docker push $(REPOSITORY):latest
 
 .PHONY: release
-release: tag image publish
+# release: tag image publish
+release: image publish
 
 # Test stuff in dev
 .PHONY: unit-test
@@ -154,4 +155,4 @@ endif
 .PHONY: update-codegen
 update-codegen: docker-build
 	@echo ">> Generating code for Kubernetes CRD types..."
-	docker run --rm -v $(PWD):/go/src/github.com/spotahome/redis-operator/ $(REPOSITORY)-dev /bin/bash -c '$(UPDATE_CODEGEN_CMD)'
+	docker run --rm -v $(PWD):/go/src/github.com/vova-tarasov/redis-operator/ $(REPOSITORY)-dev /bin/bash -c '$(UPDATE_CODEGEN_CMD)'
